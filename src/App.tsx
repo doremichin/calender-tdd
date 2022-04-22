@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Main from './pages/Main';
+
 export function App() {
   return (
-    <>
-      test입니다~
-    </>
+    <Main />
   );
 }
 

@@ -69,6 +69,7 @@ module.exports = {
     'react/button-has-type': 'off',
     'react/prop-types': 'off',
     camelcase: 'off',
+    'no-undef': 'off',
   },
   globals: {
     JSX: true,

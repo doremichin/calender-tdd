@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import MainContainer from '../views/main/containers/MainContainer';
+
 function Main() {
   return (
     <Container>
-      Main
+      <MainContainer />
     </Container>
   );
 }

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import FullCalendar from '@fullcalendar/react'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 export type TEvent = {
     title? : string
@@ -34,10 +36,30 @@ function MainComponent() {
       <p>안녕하세요</p>
       <button onClick={handleClick}>불러올거야</button>
       <FullCalendar
-        viewClassNames="sophie"
-        plugins={[dayGridPlugin]}
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        timeZone="local"
+        // initialView : timeGridWeek , dayGridMonth ,timeGridDay
         initialView="dayGridMonth"
+        locale="ko"
         events={events}
+        headerToolbar={{
+          left: 'dayGridMonth,timeGridWeek,timeGridDay',
+          center: 'title tonyButton',
+          right: 'prev,next today',
+        }}
+        views={{
+          dayGridMonth: {
+            titleFormat: { year: 'numeric', month: 'long', day: '2-digit' },
+          },
+        }}
+        customButtons={{
+          tonyButton: {
+            text: '커스텀버튼',
+            click() {
+              alert('clicked the custom button!');
+            },
+          },
+        }}
       />
     </Container>
   );

@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-export function App () {
-    return(
-        <Fragment>
-            test입니다~
-            <h1></h1>
-        </Fragment>
-    )
-};
+export function App() {
+  return (
+    <>
+      test입니다~
+    </>
+  );
+}
 
 export default App;

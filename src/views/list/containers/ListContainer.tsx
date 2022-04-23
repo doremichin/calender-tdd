@@ -6,6 +6,7 @@ import { useAppSelector } from '../../../redux/hooks';
 
 function ListContainer() {
   const listItems = useAppSelector((state) => state.common.listItems);
+
   return (
     <Container>
       <ListComponent data={listItems} />

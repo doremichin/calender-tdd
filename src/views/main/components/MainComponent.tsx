@@ -6,12 +6,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 import { defaultButton } from '../../../style/ButtonStyle';
-
-export type TEvent = {
-    title? : string
-    start? : string
-    end? : string
-}
+import { TEvent } from '../../../models/event';
 
 function MainComponent() {
   const [events, setEvents] = useState<TEvent[]>([{}]);

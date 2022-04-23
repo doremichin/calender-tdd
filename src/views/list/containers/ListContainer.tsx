@@ -2,34 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import ListComponent from '../components/ListComponent';
-
-export type TData = {
-    id : number
-    title : string
-    desc : string
-}
+import { useAppSelector } from '../../../redux/hooks';
 
 function ListContainer() {
-  const mockData : TData[] = [
-    {
-      id: 1,
-      title: '이번주 할일',
-      desc: '개발공부하기',
-    },
-    {
-      id: 2,
-      title: '다음주 할일',
-      desc: '또 개발공부하기',
-    },
-    {
-      id: 2,
-      title: '다다음주 할일',
-      desc: '또또..개발공부하기',
-    },
-  ];
+  const listItems = useAppSelector((state) => state.common.listItems);
   return (
     <Container>
-      <ListComponent data={mockData} />
+      <ListComponent data={listItems} />
     </Container>
   );
 }

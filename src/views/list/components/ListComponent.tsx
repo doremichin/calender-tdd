@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TData } from '../containers/ListContainer';
+import { TListItem } from '../../../models/list';
 
 interface IListProps {
-    data : TData[]
+    data : TListItem[]
 }
 
 function ListComponent({ data } : IListProps) {
@@ -47,7 +47,7 @@ const Title = styled.div`
 const Desc = styled.div`
   
 `;
-const SubTitle = styled.tspan`
+const SubTitle = styled.span`
   font-weight: 600;
 `;
 

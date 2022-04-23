@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
-import Main from './pages/Main';
+import { GlobalStyle } from './style/GlobalStyle';
+import Header from './views/_shared/header';
+import Routers from './Routers';
 
 export function App() {
   return (
-    <Main />
+    <>
+      <Header />
+      <GlobalStyle />
+      <Suspense fallback="loading">
+        <Routers />
+      </Suspense>
+    </>
   );
 }
 

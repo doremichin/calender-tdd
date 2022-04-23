@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import FullCalendar from '@fullcalendar/react'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
-export type TEvent = {
-    title? : string
-    start? : string
-    end? : string
-}
+import { defaultButton } from '../../../style/ButtonStyle';
+import { TEvent } from '../../../models/event';
 
 function MainComponent() {
   const [events, setEvents] = useState<TEvent[]>([{}]);
@@ -31,20 +30,46 @@ function MainComponent() {
   };
   return (
     <Container>
-      <p>안녕하세요</p>
-      <button onClick={handleClick}>불러올거야</button>
+      <Title>캘린더</Title>
+      <Button onClick={handleClick}>이벤트 불러오기</Button>
       <FullCalendar
-        viewClassNames="sophie"
-        plugins={[dayGridPlugin]}
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        timeZone="local"
+        // initialView : timeGridWeek , dayGridMonth ,timeGridDay
         initialView="dayGridMonth"
+        locale="ko"
         events={events}
+        headerToolbar={{
+          left: 'dayGridMonth,timeGridWeek,timeGridDay',
+          center: 'title tonyButton',
+          right: 'prev,next today',
+        }}
+        views={{
+          dayGridMonth: {
+            titleFormat: { year: 'numeric', month: 'long', day: '2-digit' },
+          },
+        }}
+        customButtons={{
+          tonyButton: {
+            text: '커스텀버튼',
+            click() {
+              alert('clicked the custom button!');
+            },
+          },
+        }}
       />
     </Container>
   );
 }
 
 const Container = styled.div`
-padding: 200px;
 `;
-
+const Title = styled.h1`
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 20px;
+`;
+const Button = styled(defaultButton)`
+  
+`;
 export default MainComponent;

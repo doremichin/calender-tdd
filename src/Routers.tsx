@@ -1,16 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
+import { lazy } from 'react';
+import { useRoutes } from 'react-router-dom';
+
+const Main = lazy(() => import('./pages/Main'));
+const List = lazy(() => import('./pages/List'));
 
 function Routers() {
-  return (
-    <Container>
-      Routers
-    </Container>
-  );
+  const routes = useRoutes([
+    {
+      path: '/',
+      element: <Main />,
+    },
+    {
+      path: '/list',
+      element: <List />,
+    },
+  ]);
+
+  return routes;
 }
-
-const Container = styled.div`
-
-`;
 
 export default Routers;

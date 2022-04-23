@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import MainContainer from '../views/main/containers/MainContainer';
 import { LayoutContainer } from '../style/LayoutStyle';
 
-function Main() {
+import ListContainer from '../views/list/containers/ListContainer';
+
+function List() {
   return (
     <Container>
-      <MainContainer />
+      <ListContainer />
     </Container>
   );
 }
@@ -16,4 +17,4 @@ const Container = styled(LayoutContainer)`
 
 `;
 
-export default Main;
+export default List;

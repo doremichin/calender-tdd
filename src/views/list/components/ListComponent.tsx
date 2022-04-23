@@ -13,8 +13,18 @@ function ListComponent({ data } : IListProps) {
       <ul>
         {data.map((item, index) => (
           <ListItem key={index}>
-            <p>{item.title}</p>
-            <p>{item.desc}</p>
+            <Title>
+              <SubTitle>
+                제목 :&nbsp;
+              </SubTitle>
+              {item.title}
+            </Title>
+            <Desc>
+              <SubTitle>
+                할일 :&nbsp;
+              </SubTitle>
+              {item.desc}
+            </Desc>
           </ListItem>
         )) }
       </ul>
@@ -26,11 +36,19 @@ const Container = styled.div`
 
 `;
 const ListItem = styled.li`
-  padding: 10px;
+  margin-bottom: 20px;
+  padding: 20px 25px;
+  border-radius: 10px;
   background-color: #eee;
-  p{
-    margin-bottom: 10px;
-  }
+`;
+const Title = styled.div`
+  margin-bottom: 10px;
+`;
+const Desc = styled.div`
+  
+`;
+const SubTitle = styled.tspan`
+  font-weight: 600;
 `;
 
 export default ListComponent;

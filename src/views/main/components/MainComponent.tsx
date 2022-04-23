@@ -5,6 +5,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
+import { defaultButton } from '../../../style/ButtonStyle';
+
 export type TEvent = {
     title? : string
     start? : string
@@ -33,8 +35,8 @@ function MainComponent() {
   };
   return (
     <Container>
-      <p>안녕하세요</p>
-      <button onClick={handleClick}>불러올거야</button>
+      <Title>캘린더</Title>
+      <Button onClick={handleClick}>이벤트 불러오기</Button>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         timeZone="local"
@@ -66,7 +68,13 @@ function MainComponent() {
 }
 
 const Container = styled.div`
-padding: 200px;
 `;
-
+const Title = styled.h1`
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 20px;
+`;
+const Button = styled(defaultButton)`
+  
+`;
 export default MainComponent;
